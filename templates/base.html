@@ -1,0 +1,204 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Muli">
+    <link rel="author" href="https://plus.google.com/113101541449927918834"/>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <!-- or -->
+    <!-- font-awesome css link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- animate min css link -->
+    <!-- animation css link -->
+    <link rel="stylesheet" type="text/css" href={% static "css/animate.css" %}>
+    <!-- slick slider css link -->
+    <link rel="stylesheet" type="text/css" href={% static "css/slick.css" %}>
+    <link rel="stylesheet" type="text/css" href={% static "css/slick-theme.css" %}>
+    <link rel="stylesheet" type="text/css" href={% static "css/owl.carousel.min.css" %}>
+    <!-- main custom css link -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href={% static "css/reset.css" %}><!-- Reset CSS -->
+    <link rel="stylesheet" href={% static "css/bootstrap.min.css" %}> <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href={% static "css/fontawesome-all.min.css" %}> <!-- Font Awesome CSS -->
+
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"> <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"> <!-- Google fonts -->
+    <link rel="stylesheet" type="text/css" href={% static "css/lightbox.css" %}>
+    <link rel="stylesheet" href={% static "css/navik.menu.css" %}> <!-- Navik navigation CSS -->
+    <link rel="stylesheet" type="text/css" href={% static "css/flaticon.css" %}>
+    <link rel="stylesheet" type="text/css" href={% static "css/style.css" %}>
+    <!-- responsive css link -->
+    <link rel="stylesheet" type="text/css" href={% static "css/responsive.css" %}>
+    <title>Service On Call</title>
+</head>
+
+<body>
+
+<!-- Header -->
+<header id="header" class="header-section">
+    <div class="header-top">
+        <div class="container clearfix">
+            <!--Top Left-->
+            <div class="top-left pull-left">
+                <ul class="links-nav clearfix">
+                    <li><i class="fa fa-clock-o"></i>24/7 hrs</li>
+                    <li><i class="fa fa-map-marker-alt"></i>Chitwan nepal</li>
+                    <li><i class="fa fa-phone"></i>(+977) 1234567899</li>
+                </ul>
+            </div>
+
+            <!--Top Right-->
+            <div class="top-right pull-right">
+                
+                {% if user.is_authenticated  %}
+                    <div class="social-links clearfix">
+                        <a href="{% url 'logout'  %}"><i class="fa fa-user"></i><span>Logout</span></a>
+                    </div>
+                {% else %}
+                    <div class="social-links clearfix">
+                        <a href="{% url 'login'  %}"><i class="fa fa-user"></i><span>Login / Signup</span></a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+   <!-- Header -->
+    <div class="navik-header header-shadow">
+        <div class="container">
+
+            <!-- Navik header -->
+            <div class="navik-header-container">
+                
+                <!--Logo-->
+                <div class="logo" data-mobile-logo={% static "images/logo.png" %} data-sticky-logo={% static "images/logo.png" %}>
+                    <a href="{% url 'soc:home'  %}"><img src={% static "images/logo.png" %} alt="logo"/></a>
+                </div>
+                
+                <!-- Burger menu -->
+                <div class="burger-menu">
+                    <div class="line-menu line-half first-line"></div>
+                    <div class="line-menu"></div>
+                    <div class="line-menu line-half last-line"></div>
+                </div>
+
+                <!--Navigation menu-->
+                <nav class="navik-menu menu-caret menu-hover-4 submenu-top-border submenu-scale" id="alps-menu">
+                    <ul>
+                        <li class="current-menu"><a href="{% url 'soc:home'  %}">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="{% url 'soc:list' %}">Service Providers</a></li>
+                        <li><a href="#">contact us</a></li>
+                        
+                    </ul>
+                </nav>
+
+            </div>
+
+        </div>
+    </div>
+</header>
+
+
+{% block content %}
+
+
+
+
+
+
+
+
+{% endblock content %}
+
+
+    <!-- Footer -->
+<footer>
+    <div class="footer-background">
+        <div class="container contact-bottom pt-pb-70-35">
+            <div class="row dashed-bottom">
+                <div class="col-md-4 about-bottom">
+                    <ul>
+                        <h3>About Our ompany</h3>
+                        <p>Our Company will be providing you services on call or show you the location to the nearest service center.</p>
+                    </ul>
+                </div>
+                
+                <div class="col-md-4 text-left">
+                    <div class="footer-last">
+                        <ul>
+                            <h3>contact detail</h3>
+                            <li>Service on call</li>
+                            <li><i class="fas fa-map-marker-alt"></i>2200,Kathmandu Nepal</li>
+                            <li><i class="fas fa-phone"></i>+977- 014-123456</li>
+                            <li><a href=""><i class="fas fa-envelope"></i>example@gmail.com</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-last-social-link">
+                            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-google"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        
+                    </div>
+                </div>
+                <div class="col-md-4 form-pb-20">
+                    <h3>Quick links</h3>
+                    <ul>
+                        <li><a href="#">links</a></li>
+                        <li><a href="#">links</a></li>
+                        <li><a href="#">links</a></li>
+                        <li><a href="#">links</a></li>
+                        <li><a href="#">links</a></li>
+                        <li><a href="#">links</a></li>
+                    </ul>
+                </div>
+            </div>      
+        </div>
+            
+        <div class="last-footer">
+            <div class="row">
+                <div class="col-12">
+                    <p>Copyright © Service On Call 2020. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>   
+    </div>
+
+</footer>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src={% static "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" %}></script>
+<script src={% static "js/jquery-3.3.1.min.js" %}></script> <!-- jQuery -->
+<script src={% static "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" %} integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src={% static "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" %} integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src={% static "https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/jquery.waypoints.min.js" %}></script>
+<script type="text/javascript" src={% static "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" %}></script>
+<script src={% static "js/lightbox.js" %}></script>
+<script src={% static "js/wow.min.js" %}></script>
+<script>
+new WOW().init();
+</script>
+
+<script type="text/javascript" src={% static "js/lightbox.js" %}></script>
+<script src={% static "js/bootstrap.bundle.min.js" %}></script> <!-- bootstrap jQuery-->
+<script type="text/javascript" src={% static "js/owl.carousel.min.js" %} ></script>
+<script src={% static "js/jquery.waypoints.min.js" %}></script>
+<script src={% static "js/navik.menu.js" %}></script> <!-- Navik navigation jQuery -->
+<script src={% static "js/slick.min.js" %} type="text/javascript" charset="utf-8"></script>
+<script src={% static "js/main.js" %}></script>
+</body>
+
+</html>
+    

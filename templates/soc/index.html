@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}        
+       <!-- ##### Hero Area Start ##### -->
+    <section class="hero-area">
+        <div class="hero-slides owl-carousel">
+            <!-- Single Hero Slide -->
+            {% for hp in hps  %}
+
+                    <div class="single-hero-slide bg-img" style="background-image: url('/media/{{hp.slider_image}}');">
+                        <div class="container">
+                            <div class="align-items-center">
+                                    <div class="hero-slides-content">
+                                        <h2 data-animation="zoomIn" data-delay="100ms">Welcome To Service On Call</h2>
+                                        <p data-animation="zoomIn" data-delay="400ms">{{hp.sliding_text}}</p>
+                                        <div class="slider-btns">
+                                            <a href="" class="slider-btn-1" data-animation="zoomIn" data-delay="700ms">Contact us</a>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+
+             {% endfor %}
+
+        </div>
+    </section>
+    <!-- ##### Hero Area End ##### -->
+
+    <!-- About Us -->
+    <section id="about-us" class="about-us section">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-6 col-12">   
+                    <!-- About Right -->
+                    <div class="about-right">
+                        <div class="title-line">
+                            <h5>Our SPECIALIZATION</h5>
+                            <h3>about <span> company</span></h3>
+                        </div>
+                        <div class="about-main">
+                            <p> This is the demo text shown in the area</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12">
+                    <!-- About Left -->
+                    <div class="about-left">
+                        <img src={% static "images/about.jpg" %} alt="#">
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- for loop initiated for service center -->
+    <!-- service section  -->
+    <div class="service-section section">
+        <div class="container">
+            <div class="section-title text-center">
+                    <h3><span>&nbsp;service Center</span></h3>
+                </div>
+            <div class="service-slider">
+            
+        {% for sp in sps %}
+                            
+            <div class="service-section-wrap">
+                    <div class="service-left service-all-details">
+                        <div class="service-logo">
+                            <img src="/media/{{sp.image}}" height="400px" width="400px">
+                        </div>
+                        <div class="service-logo-about">
+                            <p>{{sp.about}}</p>
+                        </div>
+                    </div>
+                    <div class="service-right service-all-details">
+                        <div class="service-tilte-name">
+                            <h3>{{sp.name}}</h3>
+                        </div>
+                        <ul class="services-list">
+                            <li><i class="fas fa-pen-nib"></i>{{sp.panno}}</li>
+                            <li><i class="fas fa-map-marker-alt"></i>{{sp.location}}</li>
+                            <li><i class="fas fa-phone"></i>{{sp.contactno}}</li>
+                        </ul>
+                        <div class="service-last service-rating">
+                            <ul class="service-rating">
+                                
+                                <li><i class="fas fa-star">{{sp.averageRating}}</i></li>
+                                        
+                            </ul>
+                        </div>
+                    </div>
+            </div>
+            <div class="slick-nav">
+                <div class="prev">
+                </div>
+                <div class="next">
+                </div>
+            </div>
+
+        {% endfor %}
+
+        </div>
+    </div>
+
+
+    
+        
+        
+    <!-- team section -->
+    <div class="team-section section">
+        <div class="container">
+            <div class="section-main-title">
+                <div class="section-title text-center">
+                    <h3><span>&nbsp;Team</span></h3>
+                </div>
+            </div>
+
+                <div class="row">
+                {% for am in ams  %}
+                    <div class="col-lg-3 col-md-4 col-sm-12 mb-3">
+                        <div class="grid grid-style style-3">
+                            <figure>
+                                <div class="awsm-grid-holder">
+                                <img src='/media/{{am.image}}' alt="team img">
+                                <figcaption>
+                                    <div class="awsm-personal-info">
+                                        <h3>{{am.name}}</h3>
+                                        <span>{{am.expertise}}</span>
+                                    </div>
+                                    <!-- .awsm-personal-info -->
+                                    <div class="awsm-contact-info">
+                                        <ul class="awsm-social-icons">
+                                        <li><a href="{{am.fb_link}}"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                                        <li><a href="{{am.tw_link}}"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                                        <li><a href="{{am.lk_link}}"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <!-- .awsm-contact-info -->
+                                </figcaption>
+                                </div>
+                            <!-- .awsm-grid-holder -->
+                            </figure>
+                        </div>
+                    </div>
+                {% endfor %}
+                
+            </div>
+            </div>
+        </div>
+    
+{% endblock content %}
+    
+<!-- https://www.facebook.com/sunitagtmz
+
+https://www.facebook.com/kureshgautama
+
+https://www.facebook.com/pacificpraxant
+
+https://www.facebook.com/poudel.manip
+
+https://twitter.com/PoudelManip  -->
+
+
+<!-- service center image size 400*400 -->
+<!-- team image size is unknown -->
+
+

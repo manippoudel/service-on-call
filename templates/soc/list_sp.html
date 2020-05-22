@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="breadcrumbs overlay" data-stellar-background-ratio="0.7">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul class="list">
+                    <li><a href= "{% url 'soc:home'  %}" >Home</a></li>
+                    <li><a href="#">Service Provider</a></li>
+                </ul>
+                <h2>Service Provider</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ End Breadcrumb -->
+
+<!-- service section  -->
+<div class="service-section section">
+    <div class="container">
+        <div class="section-title text-center">
+            <h3><span>&nbsp;service Center</span></h3>
+        </div>
+        <div class="row">
+        {% for service_provider in sp  %}
+              
+            <div class="col-md-4">
+                <div class="service-section-wrap">
+                    <div class="service-left service-all-details">
+                        <div class="service-logo">
+                            <img src="/media/{{service_provider.image}}">
+                        </div>
+                        <div class="service-logo-about">
+                            <p>{{ service_provider.about }}</p>
+                        </div>
+                    </div>
+                    <div class="service-right service-all-details">
+                        <div class="service-tilte-name">
+                            <h3>{{service_provider.name}}</h3>
+                        </div>
+                        <ul class="services-list">
+                            <li><i class="fas fa-pen-nib"></i>{{service_provider.panno}}</li>
+                            <li><i class="fas fa-map-marker-alt"></i>{{service_provider.location}}</li>
+                            <li><i class="fas fa-phone"></i>{{service_provider.contactno}}</li>
+                        </ul>
+                        <div class="service-last service-rating">
+                            <ul class="service-rating">
+                                <li><i class="fas fa-star"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <a href="{% url 'soc:details' service_provider.slug %}">Details</a>
+                </div>
+            </div>
+        {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}
