@@ -10,7 +10,7 @@ from .models import(
 #we have to pass models with the new models created in order to make it visible
 class SP_Admin(admin.ModelAdmin):
     list_display    = ('name', 'is_approved', 'date_joined', 'location', 'contactno', 'panno' )
-    readonly_fields = ('date_joined',)
+    readonly_fields = ('date_joined','slug')
     search_fields = ('panno','contact_no')
     filter_horizontal = ()
     list_filter = ('date_joined',)

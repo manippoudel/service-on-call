@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    
+	<div class="login-page signup">
+		<div class="container">
+			<div class="d-flex justify-content-center h-100">
+				<div class="card">
+			    <form method="POST" enctype="multipart/form-data" action="{% url 'soc:add_sp' %}" >
+                            {% csrf_token %}
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+							<div class="form-group">
+                    <input type="text" name="name" class="form-control" id="name" autocomplete="off" placeholder="Service Provider Name">
+                    <span id="id_fname" class="text-danger font-weight-bold"> </span>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="panno" class="form-control" id="panno" autocomplete="off" placeholder="Pan No.">
+                    <span id="id_lname" class="text-danger font-weight-bold"> </span>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" name="about" class="form-control" id="user" autocomplete="off" placeholder="About Service Provider">
+                    <span id="about" class="text-danger font-weight-bold"> </span>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" name="contactno" class="form-control" id="contactno" autocomplete="off" placeholder="Contact  Number">
+                    <span id="contact_no" class="text-danger font-weight-bold"> </span>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="location" class="form-control" id="location" autocomplete="off" placeholder="Location">
+                    <span id="contact_no" class="text-danger font-weight-bold"> </span>
+
+                </div>
+
+                <div class="form-group">
+					<label for="id_image">Image</label>
+					<input  type="file" name="image" id="id_image" accept="image/*"  required>
+				</div>
+
+							<div class="form-group">
+								<input type="submit" value="Add SP" class="btn float-right login_btn">
+                            </div>
+                            <br>
+                            <br>
+
+                            <br>
+                            <br><br>
+                            <br>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  
+
+
+{% endblock content %}

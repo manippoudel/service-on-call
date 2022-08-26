@@ -1,0 +1,65 @@
+@media (min-width: 1200px){
+
+
+.navik-menu.menu-hover-4 > ul > li > a > .hover-transition:after {
+    background: #ff7050;
+}
+
+.navik-menu.menu-hover-4 > ul > li.current-menu > a, .navik-menu.menu-hover-4 > ul > li:hover > a {
+    color: #ffc107;
+}
+
+.navik-menu > ul > li > a {
+    height: auto;
+}
+
+.header-dark .navik-menu ul li.dropdown_menu > a > span:before {
+    border-color: #e9b6f9;
+}
+
+.header-dark .navik-menu li > ul {
+    background-color: #0f1140;
+}
+
+.navik-menu > ul > li > a {
+    line-height: 60px;
+}
+
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 767px){
+.header-top .top-left,
+.header-top .top-right {
+    width: 100%;
+    text-align: center;
+}
+
+.header-top .links-nav {
+    padding: 20px 0;
+}
+
+.header-top .links-nav li {
+    border: 0px!important;
+    line-height: 26px;
+}
+
+.header-top .social-links a {
+    border-top: 1px solid #d0d1d6;
+    border-right: 1px solid #d0d1d6;
+}
+
+.hero-slides .single-hero-slide p{
+    padding: 0 50px;
+}
+
+.about-us figcaption.figure-caption{
+    margin: 0;
+}
+
+}

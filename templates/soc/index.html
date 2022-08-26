@@ -66,35 +66,44 @@
                     <h3><span>&nbsp;service Center</span></h3>
                 </div>
             <div class="service-slider">
-            
+
         {% for sp in sps %}
-                            
+
             <div class="service-section-wrap">
-                    <div class="service-left service-all-details">
-                        <div class="service-logo">
-                            <img src="/media/{{sp.image}}" height="400px" width="400px">
+                        <div class="service-left service-all-details">
+                            <div class="service-logo">
+                                <img src="/media/{{sp.image}}" height="400px" width="400px">
+                            </div>
+                            <div class="service-logo-about">
+                                <p>{{sp.about}}</p>
+                            </div>
                         </div>
-                        <div class="service-logo-about">
-                            <p>{{sp.about}}</p>
-                        </div>
-                    </div>
-                    <div class="service-right service-all-details">
-                        <div class="service-tilte-name">
-                            <h3>{{sp.name}}</h3>
-                        </div>
-                        <ul class="services-list">
-                            <li><i class="fas fa-pen-nib"></i>{{sp.panno}}</li>
-                            <li><i class="fas fa-map-marker-alt"></i>{{sp.location}}</li>
-                            <li><i class="fas fa-phone"></i>{{sp.contactno}}</li>
-                        </ul>
-                        <div class="service-last service-rating">
-                            <ul class="service-rating">
-                                
-                                <li><i class="fas fa-star">{{sp.averageRating}}</i></li>
-                                        
+                        <div class="service-right service-all-details">
+                            <a href="{% url 'soc:details' sp.slug %}">
+                                <div class="service-tilte-name">
+                                <h3>{{sp.name}}</h3>
+                                </div>
+                            <ul class="services-list">
+                                <li><i class="fas fa-pen-nib"></i>{{sp.panno}}</li>
+                                <li><i class="fas fa-map-marker-alt"></i>{{sp.location}}</li>
+                                <li><i class="fas fa-phone"></i>{{sp.contactno}}</li>
                             </ul>
+                            <div class="service-last service-rating">
+                                <ul class="service-rating">
+                                    <li><i class="fas fa-star">{{sp.averageRating}}</i></li>
+                                </ul>
+                            </div>
+                            </a>
                         </div>
+
                     </div>
+
+
+        {% endfor %}
+
+        </div>
+            <div class="service-readmore-btn">
+                <a href="{% url 'soc:list' %}">More</a>
             </div>
             <div class="slick-nav">
                 <div class="prev">
@@ -102,12 +111,56 @@
                 <div class="next">
                 </div>
             </div>
-
-        {% endfor %}
-
-        </div>
+    </div>
     </div>
 
+
+
+<!--new section-->
+<!-- Testimonials -->
+    <section id="testimonials" class="testimonials style2 section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="title-line center">
+                        <p>What our Client are saying</p>
+                        <h2><span>Clients</span> Review</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="testimonial-slider-two">
+                        <!-- Single Slider -->
+                        {% for review in reviews  %}
+
+                        <div class="single-slider">
+                            <div class="t-content">
+                                <i class="fas fa-quote-left"></i>
+                                <p class="review-class">{{review.comment}} "</p>
+                                <ul class="service-rating">
+                                    <li><i class="fas fa-star"></i></li>
+                                    <li><i class="fas fa-star"></i></li>
+                                    <li><i class="fas fa-star"></i></li>
+                                    <li><i class="fas fa-star"></i></li>
+                                    <li><i class="fas fa-star"></i></li>
+                                </ul>
+                            </div>
+                            <div class="author">
+                                <img src={% static  "images/client/1.jpg"%} alt="#">
+                                <h2>{{review.user.username}}<span>{{review.service_provider}}</span></h2>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                        <!--/ End Single Slider -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/ End Testimonials -->
 
     
         
@@ -153,6 +206,7 @@
             </div>
             </div>
         </div>
+
     
 {% endblock content %}
     

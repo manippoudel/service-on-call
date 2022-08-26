@@ -44,11 +44,23 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # userinstalled
+    'crispy_forms',
     'soc',
     # 'maps',
     'rest_framework',
     'accounts',
+    'rest_framework.authtoken',
 ]
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_PAGINATION_CLASSES': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE':4,
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -64,6 +76,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'test1.urls'
 AUTH_USER_MODEL = 'accounts.Account'
+
+AUTHENTICATION_BACKENDS = ( 
+    'django.contrib.auth.backends.AllowAllUsersModelBackend', 
+    'accounts.backends.CaseInsensitiveModelBackend',
+    )
 
 
 TEMPLATES = [
@@ -165,3 +182,5 @@ EMAIL_HOST_PASSWORD = "5s7PgK72XLcigY&!"
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 django_heroku.settings(locals())
+
+TEMP = os.path.join(BASE_DIR, 'temp')

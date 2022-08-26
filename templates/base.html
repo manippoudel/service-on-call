@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Muli">
     <link rel="author" href="https://plus.google.com/113101541449927918834"/>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
@@ -98,9 +98,10 @@
                 <nav class="navik-menu menu-caret menu-hover-4 submenu-top-border submenu-scale" id="alps-menu">
                     <ul>
                         <li class="current-menu"><a href="{% url 'soc:home'  %}">Home</a></li>
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="#about-us">About Us</a></li>
                         <li><a href="{% url 'soc:list' %}">Service Providers</a></li>
-                        <li><a href="#">contact us</a></li>
+                        <li><a href="{% url 'soc:add_sp' %}">Add Providers</a></li>
+                        <li><a href="#footer-contact">contact us</a></li>
                         
                     </ul>
                 </nav>
@@ -126,7 +127,7 @@
 
     <!-- Footer -->
 <footer>
-    <div class="footer-background">
+    <div id="footer-contact" class="footer-background">
         <div class="container contact-bottom pt-pb-70-35">
             <div class="row dashed-bottom">
                 <div class="col-md-4 about-bottom">
@@ -201,4 +202,3 @@ new WOW().init();
 </body>
 
 </html>
-    

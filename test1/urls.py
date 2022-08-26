@@ -25,6 +25,8 @@ urlpatterns = [
     # path('', include('maps.urls')),
         #restframework
     path('api/soc/', include('soc.api.urls', 'soc_api')),
+    path('api/account/', include('accounts.api.urls', 'accounts_api')),
+    
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

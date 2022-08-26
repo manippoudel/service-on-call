@@ -90,6 +90,9 @@ def account_view(request):
 	return render(request, 'update.html', context)
 
 
+def must_authenticate_view(request):
+    return render(request, 'accounts/must_authenticate.html',{})
+
 #https://medium.com/@renjithsraj/how-to-reset-password-in-django-bd5e1d6ed652
 
 # def registration_view(request):

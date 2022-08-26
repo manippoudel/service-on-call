@@ -13,7 +13,7 @@ class RegistrationForm(UserCreationForm):
 
 	def clean_email(self):
 		if self.is_valid():
-			email = self.cleaned_data['email']
+			email = self.cleaned_data['email'].lower()
 			try:
 				account = Account.objects.exclude(pk=self.instance.pk).get(email=email)
 			except Account.DoesNotExist:
@@ -22,7 +22,7 @@ class RegistrationForm(UserCreationForm):
 
 	def clean_username(self):
 		if self.is_valid():
-			username = self.cleaned_data['username']
+			username = self.cleaned_data['username'].lower()
 			try:
 				account = Account.objects.exclude(pk=self.instance.pk).get(username=username)
 			except Account.DoesNotExist:
@@ -75,7 +75,7 @@ class AccountUpdateForm(forms.ModelForm):
 
 	def clean_email(self):
 		if self.is_valid():
-			email = self.cleaned_data['email']
+			email = self.cleaned_data['email'].lower()
 			try:
 				account = Account.objects.exclude(pk=self.instance.pk).get(email=email)
 			except Account.DoesNotExist:
@@ -84,7 +84,7 @@ class AccountUpdateForm(forms.ModelForm):
 
 	def clean_username(self):
 		if self.is_valid():
-			username = self.cleaned_data['username']
+			username = self.cleaned_data['username'].lower()
 			try:
 				account = Account.objects.exclude(pk=self.instance.pk).get(username=username)
 			except Account.DoesNotExist:

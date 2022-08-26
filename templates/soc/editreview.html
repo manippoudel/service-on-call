@@ -1,4 +1,4 @@
-{% extends 'main/base.html' %}
+{% extends 'base.html' %}
 
 {% load crispy_forms_tags %}
 
@@ -9,7 +9,7 @@
     <div class="card">
         <div class="card-body">
             <h3 class="text-center">Edit Review</h3>
-            <form action="" method="POST">
+            <form  method="POST">
                 {% csrf_token %}
                 {{ form | crispy }}
                 {% if error %}

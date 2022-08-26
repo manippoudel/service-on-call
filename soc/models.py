@@ -4,6 +4,7 @@ from django.db.models.signals import pre_save
 from django.dispatch import receiver
 # from django.utils.text import slugify
 from django.template.defaultfilters import slugify
+import base64
 
 
 
@@ -15,17 +16,20 @@ from django.template.defaultfilters import slugify
 
 class Service_Provider(models.Model):
 	name            =  models.CharField(max_length=100)
-	panno           =  models.CharField(max_length=30, unique=True,blank=False, null=False)
+	panno           =  models.CharField(max_length=30, unique=True,blank=True, null=False)
 	about           =  models.TextField(max_length=50)
 	location        =  models.CharField(max_length=100)
 	contactno       =  models.CharField(max_length=10,unique=True)
-	averageRating   =  models.FloatField(default=0)
+	averageRating   =  models.FloatField(default=0)#need to remove
 	image           =  models.ImageField(upload_to='sp_pics')
 	is_approved		=  models.BooleanField(default=False)
 	date_joined		= models.DateTimeField(verbose_name='date joined', auto_now_add=True)
+	date_updated 	= models.DateTimeField(auto_now=True, verbose_name="date updated")
 	Posted_by		= models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)		
-	slug			= models.SlugField(unique=True, blank=True)
+	slug			= models.SlugField(unique=True, editable=False)
 
+
+# fields = ('name', 'panno', 'location', 'about', 'image', 'contactno')
 
 	#https://www.youtube.com/watch?v=lSX8nzu9ozg&list=PLeyK9Dw9ShReHUdt5Nh2qlgF6keN6DI7z&index=32
  
@@ -35,14 +39,26 @@ class Service_Provider(models.Model):
 	def __str__(self):
 		return self.name
 
+
 	class Meta:
 		verbose_name 		= 'Service Provider'
 		verbose_name_plural = 'Service Provider'
+	# def save(self,*args,**kwargs):
+	# 	super(Service_Provider,self).save(*args,**kwargs)
+	# 	if not self.slug:
+	# 		self.slug = slugify(self.name+'-'+str(self.id))
+	# 		super(Service_Provider,self).save(*args,**kwargs)
+ #wecanencode the field
 	def save(self,*args,**kwargs):
-		super(Service_Provider,self).save(*args,**kwargs)
 		if not self.slug:
-			self.slug = slugify(self.name+'-'+str(self.id))
-			super(Service_Provider,self).save(*args,**kwargs)
+			#this is used to check the ValueError
+			# breakpoint()
+			self.slug = slugify(self.name+'-'+self.panno)
+		super(Service_Provider,self).save(*args,**kwargs)
+ 
+	# @property
+	# def review(self):
+	# 	return self.review_set.all()
 
 # #it helps to check the pre existing foelds or not
 # def pre_save_sp(sender, instance, *args, **kwargs):
@@ -53,18 +69,22 @@ class Service_Provider(models.Model):
 
 
 class Review(models.Model):
-    service_provider = models.ForeignKey(Service_Provider, on_delete=models.CASCADE)
-    user 			 = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    comment  		 = models.TextField(max_length=800)
-    rating 			 = models.FloatField(default=0)
-    
-    def __str__(self):
-    		return self.user.username
+	service_provider = models.ForeignKey(Service_Provider, on_delete=models.CASCADE)
+	user 			 = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="reviews")
+	comment  		 = models.TextField(max_length=800)
+	rating 			 = models.FloatField(default=0)
+	timestamp		 = models.DateTimeField(auto_now_add=True)
+	#integer field can be consider for best use
 
+	def __str__(self):
+		return self.user.username
 
+	def is_allowed(self, user):
+		return self.user == user
 
-
-
+	@property
+	def user_name(self):
+	 	return self.user.username
 class about_member(models.Model):
 	name		= models.CharField(max_length=30)
 	expertise 	= models.TextField(max_length=15)
@@ -90,7 +110,3 @@ class home_page(models.Model):
 	class Meta:
 		verbose_name 		= 'Home Page'
 		verbose_name_plural = 'Home Page'
-
-
-# def about_com(models):
-# 	about_company	= models.TextField(max_length=300)

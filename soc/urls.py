@@ -3,7 +3,7 @@ from rest_framework.urls import app_name
 
 from . import views
 from .views import (add_review, delete_review, detail_sp, edit_review,
-                    home_view, list_sp)
+                    home_view, list_sp, add_sp)
 
 app_name = 'soc'
 
@@ -12,6 +12,8 @@ urlpatterns = [
     path('serviceproviders/', views.list_sp, name='list'),
     path('serviceproviders/details/<slug>/', views.detail_sp, name='details'),
     path('serviceproviders/addreview/<slug>/', views.add_review, name='add_review'),
+    path('addserviceprovider/', views.add_sp, name='add_sp'),
+
     path('serviceproviders/editreview/<slug>/<int:review_id>', views.edit_review, name='edit_review'),
     path('serviceproviders/deletereview/<slug>/<int:review_id>', views.delete_review, name='delete_review'),
     
